@@ -1,3 +1,6 @@
 [submodule "PokerBot-DeepStack-Leduc"]
 	path = PokerBot-DeepStack-Leduc
 	url = ../PokerBot-DeepStack-Leduc.git
+[submodule "PokerBot-rlcard"]
+	path = PokerBot-rlcard
+	url = ../PokerBot-rlcard.git
