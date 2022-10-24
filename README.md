@@ -49,3 +49,9 @@ Successfully installed GitPython-3.1.29 contourpy-1.0.5 cycler-0.11.0 fonttools-
 ### Other
 - [Fundamentals](https://www.simplilearn.com/tutorials/deep-learning-tutorial/neural-network)
 - [Chess](https://www.chessprogramming.org/Neural_Networks)
+
+### Glossary
+- DQL = Deep [Q-Learning](https://de.wikipedia.org/wiki/Q-Lernen)
+- CFR = Counterfactual Regret Minimization
+- NFSP = Neural Fictitious Self-Play
+- RL = Reinforced learning
