@@ -30,3 +30,11 @@
 - Implement one of
   - Hold'em for more than two players
   - new game - e.g. MauMau as a combination of Uno with french playing cards
+#### Outcome
+- RLCard Showdown is an interface allowing to
+  - play Dou Dizhu against computer
+  - replay learning games
+  - seems complicated to adjust for other / new games
+- RLCard Showdown seems a bit unmaintained, some dependencies have to be adjusted to get it up and running
+  - `pip install markupsafe==2.0.1`, `pip install flask==1.1.4`
+  - npm seems a bit unstable for npm 8.11.0, working for npm 6.14.4
