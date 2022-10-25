@@ -1,10 +1,10 @@
 # PokerBot
 
 ## Code Camp
-[Project Orga](./doc/project-orga.md)
+[Project Orga](./doc/00-project-orga.md)
 
 ## DeepStack
-[Well ... it's dead](./doc/dead-end-1-poker.md)
+[Well ... it's dead](./doc/01-dead-end-1-poker.md)
 
 ## RLCard
 

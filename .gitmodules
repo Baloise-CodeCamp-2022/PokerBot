@@ -4,3 +4,6 @@
 [submodule "PokerBot-rlcard"]
 	path = PokerBot-rlcard
 	url = ../PokerBot-rlcard.git
+[submodule "PokerBot-rlcard-showdown"]
+	path = PokerBot-rlcard-showdown
+	url = ../PokerBot-rlcard-showdown.git
