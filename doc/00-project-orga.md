@@ -33,8 +33,14 @@
 #### Outcome
 - RLCard Showdown is an interface allowing to
   - play Dou Dizhu against computer
-  - replay learning games
+  - replay Leduc hold'em learning games
   - seems complicated to adjust for other / new games
 - RLCard Showdown seems a bit unmaintained, some dependencies have to be adjusted to get it up and running
   - `pip install markupsafe==2.0.1`, `pip install flask==1.1.4`
   - npm seems a bit unstable for npm 8.11.0, working for npm 6.14.4
+- MauMau implemented ([playing randomly](https://www.explainxkcd.com/wiki/index.php/221:_Random_Number))
+
+### Wednesday
+#### Mission
+- Test and fix MauMau
+- Train AI MauMau with DQN and CFR, compare
