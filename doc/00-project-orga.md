@@ -83,3 +83,6 @@ def weight_hand(cards):
     return count
 ```
 ![](./dqn-specific-payoff.png)
+
+- Position Matters! The stronger bot looses, if in position 2.
+- Being first implies being one card ahead to player two. 
