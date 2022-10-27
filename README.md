@@ -1,12 +1,13 @@
 # PokerBot
 
 ## Code Camp
-[Project Orga](./doc/00-project-orga.md)
+[Project Orga](./docs/00-project-orga.md)
 
 ## DeepStack
-[Well ... it's dead](./doc/01-dead-end-1-poker.md)
+[Well ... it's dead](./docs/01-dead-end-1-poker.md)
 
 ## RLCard
+Documented in [Project Orga](./docs/00-project-orga.md)
 
 ### Introduction
 Reinforcement Learning Card Games
