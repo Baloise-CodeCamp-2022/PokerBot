@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>BCC 2022 - Poker Bot</title>
   <meta charset="utf-8">
@@ -60,7 +60,40 @@ class: center, middle
 
 ## Algorithms
 
+Following algorithms are part of Reinforcement Learning
+
+### DQN - Deep Q-Network
+
+![](img/dqn-formula.png)
+
+- Q-Learning
+  Form of temporal difference learning (TD-Learning)
+- Deep Q-Learning
+
+### DMC - Deep Monte Carlo
+
+- Monte Carlo Simulation
+- Stochastisches Näherungsverfahren
+
+### NFSP - Neural Fictious Self Play
+> It uses two independent networks Q(s, a | θ(Q) ), and Π(s, a | θ(Π) ) and two memory buffers Mrl and Msl assigned to each of them respectively:
+>
+> - Mrl is a circular buffer that stores agent experience in the form of
+> ![](img/nfsp.png)
+> - Msl is a reservoir that stores the best behaviour in the form of: [s(t), a(t)] state and action at time step t.
+> - Q(s, a | θ(Q) ) is a neural network to predict action values from data in Mrl using off-policy reinforcement learning. This network approximates best response strategy, β = ε-greedy(Q), which selects a random action with probability ε , and the action that maximizes Q-value with probability (1-ε).
+> - Π(s, a | θ(Π) ), is a neural network that maps states to action probabilities and defines the agent’s average strategy, π = Π. In other words, it tries to reproduce the best response behaviour using supervised learning from its history of previous best response behaviour in Msl.
+
+[Source](https://towardsdatascience.com/neural-fictitious-self-play-800612b4a53f)
+
 ## Torch & TensorFlow
+
+TensorFlow and Torch are scientific Open Source libraries for machine learning.
+
+Torch was originally written in Lua, we used PyTorch.
+It's still quite young, but growing fast.
+
+TensorFlow originates in Google. It's very powerful and mature.
 
 ---
 

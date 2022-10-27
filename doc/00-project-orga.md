@@ -46,6 +46,8 @@
 - Train AI MauMau with DQN and CFR, compare
 #### Outcome
 
+##### DQN
+
 Training DQN with adjusted payoff calculation based on card values led to a better training result.
 
 ![](./dqn-formula.png)
@@ -58,6 +60,7 @@ def get_payoffs(self):
         self.payoffs[1 - winner[0]] = -1
     return self.payoffs
 ```
+
 ![](./dqn-no-specific-payoff.png)
 
 ```python
@@ -82,7 +85,26 @@ def weight_hand(cards):
         elif card.rank == 'J': count += 20
     return count
 ```
-![](./dqn-specific-payoff.png)
 
+![DQN Custom Payoff](./dqn-specific-payoff.png)
+
+![DQN Custom Payoff - Long Run](dqn_custom-payoff_result_long-run.png)
+
+##### NFSP
+
+Training with NFSP on the other side is not as promising as previously seen with DQN
+
+![NFSP](nfsp.png)
+
+![NFSP Cusom Payoff](nfsp-custom-payoff.png)
+
+##### General Conclusion
 - Position Matters! The stronger bot looses, if in position 2.
 - Being first implies being one card ahead to player two. 
+
+### Thursday
+#### Mission
+- Clenaup results for short video
+- Prepare first set of slides
+- Can an easy DQN trained against strong DMC beat it?
+#### Outcome
