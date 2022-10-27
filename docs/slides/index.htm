@@ -4,18 +4,59 @@
   <title>BCC 2022 - Poker Bot</title>
   <meta charset="utf-8">
   <style>
-    @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-    @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @font-face {
+          font-family: 'BaloiseCreateHeadline';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: local('BaloiseCreateHeadline'), local('BaloiseCreateHeadline-bold'),
+          url('https://cdn.jsdelivr.net/npm/@baloise/design-system-fonts/lib/BaloiseCreateHeadline-bold.woff2')
+          format('woff2'),
+          url('https://cdn.jsdelivr.net/npm/@baloise/design-system-fonts/lib/BaloiseCreateHeadline-bold.woff') format('woff');
+      }
+
+      @font-face {
+          font-family: 'BaloiseCreateHeadline';
+          font-style: normal;
+          font-weight: 300;
+          font-display: swap;
+          src: local('BaloiseCreateHeadline'), local('BaloiseCreateHeadline-light'),
+          url('https://cdn.jsdelivr.net/npm/@baloise/design-system-fonts/lib/BaloiseCreateHeadline-light.woff2')
+          format('woff2'),
+          url('https://cdn.jsdelivr.net/npm/@baloise/design-system-fonts/lib/BaloiseCreateHeadline-light.woff') format('woff');
+      }
+
+      @font-face {
+          font-family: 'BaloiseCreateText';
+          font-style: normal;
+          font-weight: 700;
+          font-display: swap;
+          src: local('BaloiseCreateText'), local('BaloiseCreateText-bold'),
+          url('https://cdn.jsdelivr.net/npm/@baloise/design-system-fonts/lib/BaloiseCreateText-bold.woff2') format('woff2'),
+          url('https://cdn.jsdelivr.net/npm/@baloise/design-system-fonts/lib/BaloiseCreateText-bold.woff') format('woff');
+      }
+
+      @font-face {
+          font-family: 'BaloiseCreateText';
+          font-style: normal;
+          font-weight: 400;
+          font-display: swap;
+          src: local('BaloiseCreateText'), local('BaloiseCreateText-regular'),
+          url('https://cdn.jsdelivr.net/npm/@baloise/design-system-fonts/lib/BaloiseCreateText-regular.woff2') format('woff2'),
+          url('https://cdn.jsdelivr.net/npm/@baloise/design-system-fonts/lib/BaloiseCreateText-regular.woff') format('woff');
+      }
+
     @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
 
-    body { font-family: 'Droid Serif'; }
+    body { font-family: 'BaloiseCreateText'; }
     h1, h2, h3 {
-      font-family: 'Yanone Kaffeesatz';
+      font-family: 'BaloiseCreateHeadline';
       font-weight: normal;
     }
     .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
   </style>
 </head>
+
 <body>
 <textarea id="source">
 
@@ -27,7 +68,11 @@ class: center, middle
 
 # Agenda
 
-1. ?
+0. Introduction
+0. The Game
+0. Theory
+3. Hands On
+4. Conclusion
 
 ---
 
@@ -35,34 +80,26 @@ class: center, middle
 
 ---
 
-# Poker Complexity
-
+# The Game
+## Poker Complexity
 ## Go vs. Poker
-
----
-
-# Hands on
-## DeepStack
-## RLCards
-
----
-
-# Mau Mau
-
-## Implementation
-## Training
+## Mau Mau
 
 ---
 
 # Theory
 
-## Model
+---
 
-## Algorithms
+## Theory - Model
+
+---
+
+## Theory - Algorithms
 
 Following algorithms are part of Reinforcement Learning
 
-### DQN - Deep Q-Network
+### Theory - Algorithms - DQN: Deep Q-Network
 
 ![](img/dqn-formula.png)
 
@@ -70,12 +107,16 @@ Following algorithms are part of Reinforcement Learning
   Form of temporal difference learning (TD-Learning)
 - Deep Q-Learning
 
-### DMC - Deep Monte Carlo
+---
+
+### Theory - Algorithms - DMC: Deep Monte Carlo
 
 - Monte Carlo Simulation
 - Stochastisches Näherungsverfahren
 
-### NFSP - Neural Fictious Self Play
+---
+
+### Theory - Algorithms - NFSP: Neural Fictious Self Play
 > It uses two independent networks Q(s, a | θ(Q) ), and Π(s, a | θ(Π) ) and two memory buffers Mrl and Msl assigned to each of them respectively:
 >
 > - Mrl is a circular buffer that stores agent experience in the form of
@@ -86,7 +127,15 @@ Following algorithms are part of Reinforcement Learning
 
 [Source](https://towardsdatascience.com/neural-fictitious-self-play-800612b4a53f)
 
-## Torch & TensorFlow
+---
+
+# Hands on
+## DeepStack
+## RLCards
+
+---
+
+## Hands On - Torch & TensorFlow
 
 TensorFlow and Torch are scientific Open Source libraries for machine learning.
 
@@ -97,13 +146,88 @@ TensorFlow originates in Google. It's very powerful and mature.
 
 ---
 
+## Hands On - Training
+
+---
+
+### Hands On - Training - DQN
+
+Training DQN with adjusted payoff calculation based on card values led to a better training result.
+
+![](img/dqn-formula.png)
+
+```python
+def get_payoffs(self):
+    winner = self.round.winner
+    if winner is not None and len(winner) == 1:
+        self.payoffs[winner[0]] = 1
+        self.payoffs[1 - winner[0]] = -1
+    return self.payoffs
+```
+
+![](img/dqn-no-specific-payoff.png)
+
+---
+
+### Hands On - Training - DQN (Adjusted Payoff)
+
+```python
+def get_payoffs(self):
+    winner = self.round.winner
+    if winner is not None and len(winner) == 1:
+        self.payoffs[winner[0]] = MauMauGame.weight_hand(self.players[1-winner[0]].hand)
+        self.payoffs[1 - winner[0]] = -MauMauGame.weight_hand(self.players[1-winner[0]].hand)
+    return self.payoffs
+
+@staticmethod
+def weight_hand(cards):
+    count = 0
+    for card in cards:
+        if card.rank == '7': count += 7
+        elif card.rank == '8': count += 8
+        elif card.rank == '9': count += 9
+        elif card.rank == 'T': count += 10
+        elif card.rank == 'Q': count += 10
+        elif card.rank == 'K': count += 10
+        elif card.rank == 'A': count += 11
+        elif card.rank == 'J': count += 20
+    return count
+```
+
+---
+
+### Hands On - Training - DQN - Learning Improvement
+
+![DQN Custom Payoff](img/dqn-specific-payoff.png)
+
+![DQN Custom Payoff - Long Run](img/dqn_custom-payoff_result_long-run.png)
+
+---
+
+### Hands On - Training - NFSP
+
+Training with NFSP on the other side is not as promising as previously seen with DQN
+
+![NFSP](img/nfsp.png)
+
+![NFSP Cusom Payoff](img/nfsp-custom-payoff.png)
+
+---
+
+### Hands On - Training - General Conclusion
+- Model and reward system is important!
+- Rewards / payoff defines what we are optimizing for!
+- Position Matters! The stronger bot looses, if in position two.
+- Being first implies being one card ahead to player two.
+
+---
+
 # Conclusion
 
     </textarea>
-<script src="https://remarkjs.com/downloads/remark-latest.min.js">
-</script>
-<script>
-  var slideshow = remark.create();
-</script>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+    <script>
+      const slideshow = remark.create();
+    </script>
 </body>
 </html>
