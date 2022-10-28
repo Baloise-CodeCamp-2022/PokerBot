@@ -104,7 +104,12 @@ Training with NFSP on the other side is not as promising as previously seen with
 
 ### Thursday
 #### Mission
-- Clenaup results for short video
+- Clean up results for short video
 - Prepare first set of slides
-- Can an easy DQN trained against strong DMC beat it?
 #### Outcome
+- 
+
+### Friday
+#### Mission
+- Can an easy DQN trained against strong DMC beat it?
+- comparison table (DQN long, DMC long, DQN trained vs. dqn long, DQN trained vs. dmc long, NFSP, random)
