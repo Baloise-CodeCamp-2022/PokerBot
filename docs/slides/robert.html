@@ -44,7 +44,68 @@ class: center, middle
 - What are the differences between the algorithms?
 ---
 ## Training
-- Training with different algorithms/reward functions
+- Effect of payoff function
+- Effect of time
+- Effect of algorithm
+- Playing with oneself
+- Training with existing models
+
+---
+
+## Effect of payoff function
+![DQN: win or lose](img/dqn-specific-payoff.png)
+![DQN: count points](img/dqn-no-specific-payoff.png)
+- Algorithm: Deep-Q Learning
+- Finish training after 2,500,000 time steps
+- Training with random agents
+- Average payoff stagnates or increases
+- Quality of payoff function determines success
+
+---
+
+## Effect of time
+![DQN: count points](img/dqn_custom-payoff_result_long-run.png)
+- Algorithm: Deep-Q Learning
+- Finish training after 100,000,000 time steps
+- Reward seems to reach a global maximum after 20,000,000 steps
+- Longer training will not lead to better results per se
+- Why?
+
+---
+
+## Effect of algorithm
+![NFSP: win or lose](img/nfsp.png)
+![NFSP: count points](img/nfsp-custom-payoff.png)
+- Algorithm: Neural Fictitious Self-Play
+- Finish training after 2,350,000 steps
+- Regardless of the payoff function the AI can not beat a random player
+
+---
+
+## Playing with oneself
+![DQN vs DQN: count points](img/dqn_vs_dqn_long.png)
+- Algorithm: Deep-Q Learning
+- Train against an experienced DQN agent
+- Beats adversary after 2,000,000 time steps
+- Only slightly better average payoff even after 8,000,000 time steps
+- DQN agents do not seem to improve iteratively
+
+---
+
+## Training with existing models
+![NFSP](img/dqn_vs_dmc_5000_2000.png)
+- Algorithm: Deep-Q Learning
+- Adversary trained with Deep Monte-Carlo
+- Beats adversary after 1,000,000 time steps
+- Eventually achieves a slightly better average payoff
+- What does this tell us?
+
+
+<!-- TODO: Find out how to embed images in slides -->
+<!-- TODO: Collect all images you want to show in the img folder -->
+<!-- TODO: Group bullet points into topics -->
+<!-- TODO: Design slides for each topic -->
+<!-- TODO: Create notes for each slide -->
 ---
 ## Conclusion
 ##Literature
