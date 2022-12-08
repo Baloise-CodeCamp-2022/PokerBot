@@ -5,6 +5,6 @@ docker build -t "$IMAGE" . \
   --user="$(id -u):$(id -g)" \
   --net=none \
   -v "$PWD":/data \
-  "$IMAGE" pdflatex presentation.tex \
-&& rm presentation.aux presentation.log presentation.nav \
-      presentation.out presentation.snm presentation.toc
+  "$IMAGE" pdflatex presentation.tex
+rm presentation.aux presentation.log presentation.nav \
+  presentation.out presentation.snm presentation.toc
