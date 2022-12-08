@@ -23,5 +23,6 @@ WORKDIR /data
 RUN tlmgr install latexmk
 RUN tlmgr install beamer
 RUN tlmgr install import
+RUN tlmgr install numprint
 
 VOLUME ["/data"]
