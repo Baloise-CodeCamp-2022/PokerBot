@@ -22,5 +22,6 @@ WORKDIR /data
 # Install latex packages
 RUN tlmgr install latexmk
 RUN tlmgr install beamer
+RUN tlmgr install import
 
 VOLUME ["/data"]
