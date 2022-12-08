@@ -1,4 +1,7 @@
 \documentclass{beamer}
+
+\usepackage{import}
+
 \title{Playing Cards with Machines}
 \author{Robert Grönsfeld}
 \institute{Baloise}
@@ -6,16 +9,15 @@
 
 \begin{document}
 
-\section{Motivation}
-\section{RLCard Toolkit}
-\section{Theory}
-\section{Training}
-
 \frame{\titlepage}
 
-\begin{frame}
-\frametitle{Sample frame title}
-This is some text in the first frame. This is some text in the first frame. This is some text in the first frame.
-\end{frame}
+\section{Motivation}
+\import{.}{motivation.tex}
+\section{RLCard Toolkit}
+\import{.}{toolkit.tex}
+\section{Theory}
+\import{.}{theory.tex}
+\section{Training}
+\import{.}{training.tex}
 
 \end{document}
