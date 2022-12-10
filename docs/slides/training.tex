@@ -142,3 +142,35 @@
 
 \end{columns}
 \end{frame}
+
+%%%
+
+\begin{frame}
+\frametitle{Tournament}
+
+\begin{figure}
+\begin{tabular}{c | c | c | c | c | c | c}
+            & $DMC4$  & $NFSP$ & $DQN_{DMC}$ & $DQN_{DQN}$  & $DQN100$ & $Random$ \\
+\hline
+$DMC4$      & 1.3     & 3.4    & -0.7        & 0.2          & -0.3     & 4.5      \\
+\hline
+$NFSP$      & -1.8    & -0.2   & -2.5        & -2.3         & -2.4     & 2.0      \\
+\hline
+$DQN_{DMC}$ & 1.2     & 4.0    & 0.7         & 1.4          & 1.6      & 4.7      \\
+\hline
+$DQN_{DQN}$ & 0.9     & 3.5    & 0.2         & 1.2          & 0.6      & 5.3      \\
+\hline
+$DQN100$    & 1.0     & 3.6    & 0.7         & 1.3          & 1.4      & 5.1      \\
+\hline
+$Random$    & -3.1    & -1.5   & -4.0        & -3.2         & -3.3     & 0.5      \\
+\end{tabular}
+\end{figure}
+
+
+\begin{itemize}
+\item Deep-Q Agent trained with Deep Monte-Carlo agent wins the tournament
+\item All agents are better than a random player
+\item Player position gives an advantage of up to 1.4 points
+\end{itemize}
+
+\end{frame}
