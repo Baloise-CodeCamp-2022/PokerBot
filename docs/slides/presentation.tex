@@ -1,9 +1,22 @@
-\documentclass[aspectratio=169]{beamer}
+\documentclass[aspectratio=169,table,svgnames]{beamer}
+
+% Option collision when using JeuxCartes
+\PassOptionsToPackage{table,svgnames}{xcolor}
 
 \usepackage{import}
 \usepackage{bookmark}
 \usepackage{numprint}
 \usepackage{graphicx}
+
+% Install JeuxCartes with its dependencies
+\usepackage{JeuxCartes}
+\usepackage{listofitems}
+\usepackage{xstring}
+\usepackage{simplekv}
+\usepackage{xint}
+\usepackage{randomlist}
+\usepackage{xkeyval}
+\usepackage{worldflags}
 
 \graphicspath{{./img}}
 
