@@ -24,5 +24,13 @@ RUN tlmgr install latexmk
 RUN tlmgr install beamer
 RUN tlmgr install import
 RUN tlmgr install numprint
+RUN tlmgr install jeuxcartes
+RUN tlmgr install listofitems
+RUN tlmgr install xstring
+RUN tlmgr install simplekv
+RUN tlmgr install xint
+RUN tlmgr install randomlist
+RUN tlmgr install xkeyval
+RUN tlmgr install worldflags
 
 VOLUME ["/data"]
