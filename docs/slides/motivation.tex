@@ -1,4 +1,18 @@
 \begin{frame}
+    \frametitle{Motivation}
+
+    \begin{itemize}
+        \item Idea for Code Camp: Extend Open Source Project for Poker with additional functionality
+        \item DeepStack.ai: Leduc Hold'em
+        \item Problem: Project too old and not maintained
+        \item Found another project RLCard
+        \item Implement Mau-Mau as simple card game into the framework
+    \end{itemize}
+\end{frame}
+
+%%%
+
+\begin{frame}
 \frametitle{What we played: MauMau}
 
 \begin{columns}[b]
@@ -36,4 +50,25 @@
 
 \end{columns}
 
+\end{frame}
+
+%%%
+
+\begin{frame}
+    \frametitle{Mau-Mau Rules}
+    \begin{itemize}
+        \item Card deck: 32 cards, 5 hand cards at start
+    \item Process
+        \begin{itemize}
+            \item play a card with the same rank or suit
+            \item if not possible: draw a card
+        \end{itemize}
+    \item Goal: play all hand cards
+    \item Special cards
+        \begin{itemize}
+            \item \AffMiniCarteJeu{7.T}\AffMiniCarteJeu{7.C}\AffMiniCarteJeu{7.K}\AffMiniCarteJeu{7.P} : next players has to draw 2 cards
+            \item \AffMiniCarteJeu{8.T}\AffMiniCarteJeu{8.C}\AffMiniCarteJeu{8.K}\AffMiniCarteJeu{8.P} :  next player misses a turn
+            \item \AffMiniCarteJeu{V.T}\AffMiniCarteJeu{V.C}\AffMiniCarteJeu{V.K}\AffMiniCarteJeu{V.P} : can be played on any suit, player can wish a suit for the next card
+        \end{itemize}
+    \end{itemize}
 \end{frame}
